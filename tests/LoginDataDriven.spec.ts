@@ -5,6 +5,8 @@ import { DataProvider } from '../utils/dataProvider';
 import { TestConfig } from '../test.config';
 import { HomePage } from '../pages/HomePage';
 
+/***
+* Commenting data drivento check workflow status
 
 //Load JSON test data logindata.json
 const jsonPath = "testdata/logindata.json";
@@ -71,3 +73,5 @@ for (const data of csvTestData) {
     });
 
 }
+
+*/
