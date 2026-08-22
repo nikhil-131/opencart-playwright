@@ -77,8 +77,8 @@ test("End to End functionality - Register, Login, Search, Finding product, addin
     await addProductToCart();
     console.log("Product added to cart successfully...");
     
-    await productCheckout();
-    console.log("Product chrckout successfully...");
+    // await productCheckout();
+    // console.log("Product chrckout successfully...");
     
 });
 

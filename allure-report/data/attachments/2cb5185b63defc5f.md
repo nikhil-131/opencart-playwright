@@ -1,0 +1,114 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: EndToEndTest.spec.ts >> End to End functionality - Register, Login, Search, Finding product, adding to cart, checkout
+- Location: tests\EndToEndTest.spec.ts:70:5
+
+# Error details
+
+```
+Error: locator.click: Error: strict mode violation: locator('#cart button') resolved to 2 elements:
+    1) <button type="button" data-toggle="dropdown" data-loading-text="Loading..." class="btn btn-inverse btn-block btn-lg dropdown-toggle">…</button> aka getByRole('button', { name: ' 2 item(s) - $' })
+    2) <button type="button" title="Remove" class="btn btn-danger btn-xs" onclick="cart.remove('132289');">…</button> aka getByTitle('Remove')
+
+Call log:
+  - waiting for locator('#cart button')
+
+```
+
+# Test source
+
+```ts
+  1  | import { Page, Locator } from "@playwright/test";
+  2  | 
+  3  | export class ProductPage {
+  4  |     private readonly page:Page;
+  5  | 
+  6  |     private readonly product:Locator;
+  7  |     private readonly brand:Locator;
+  8  |     private readonly availability:Locator;
+  9  |     private readonly inputTxtQuantity:Locator;
+  10 |     private readonly BtnAddToCart:Locator;
+  11 |     private readonly successMsgTxt:Locator;
+  12 |     private readonly BtnCart:Locator;
+  13 |     private readonly totalTxt:Locator;
+  14 |     private readonly BtnViewCart:Locator;
+  15 | 
+  16 |     constructor(page:Page) {
+  17 |         this.page = page;
+  18 | 
+  19 |         this.product = page.locator("div h1");
+  20 |         this.brand = page.locator("li a:has-text('Apple')");
+  21 |         this.availability = page.locator("li:has-text('Availability:')");
+  22 |         this.inputTxtQuantity = page.locator("#input-quantity");
+  23 |         this.BtnAddToCart = page.locator("#button-cart");
+  24 |         this.successMsgTxt = page.locator(".alert-success.alert-dismissible");
+  25 |         this.BtnCart = page.locator("#cart button");
+  26 |         this.totalTxt = page.locator("tbody tr:nth-child(4) td:nth-child(2)");
+  27 |         this.BtnViewCart = page.locator(".text-right a:has-text('View Cart')");
+  28 |     }
+  29 | 
+  30 |     async isProductPageExist():Promise<boolean> {
+  31 |         const pageURL = this.page.url();
+  32 | 
+  33 |         if(pageURL.includes("/product")) {
+  34 |             return true;
+  35 |         }
+  36 |         return false;
+  37 |     }
+  38 | 
+  39 |     async checkProductName(productName:string):Promise<boolean> {
+  40 |         const pName = await this.product.textContent();
+  41 |         return (pName === productName);
+  42 |     }
+  43 | 
+  44 |     async checkBrandName(brandName:string):Promise<boolean> {
+  45 |         const bName = await this.brand.textContent();
+  46 |         return (bName === brandName);
+  47 |     }
+  48 | 
+  49 |     async isStockAvailable():Promise<boolean> {
+  50 |         const stockAvailable = await this.availability.textContent();
+  51 | 
+  52 |         if(stockAvailable?.includes("In Stock")) {
+  53 |             return true;
+  54 |         }
+  55 |         return false;
+  56 |     }
+  57 | 
+  58 |     async enterProductQuantity(quantity:string):Promise<void> {
+  59 |         await this.inputTxtQuantity.clear();
+  60 |         await this.inputTxtQuantity.fill(quantity);
+  61 |     }
+  62 | 
+  63 |     async clickAddToCart():Promise<void> {
+  64 |         await this.BtnAddToCart.click();
+  65 |     }
+  66 | 
+  67 |     async checkSuccessMsg():Promise<boolean> {
+  68 |         const successMsg = await this.successMsgTxt.textContent();
+  69 |         if(successMsg?.includes("Success")) {
+  70 |             return true;
+  71 |         }
+  72 |         return false;
+  73 |     }
+  74 | 
+  75 |     async clickCart():Promise<void> {
+> 76 |         await this.BtnCart.click();
+     |                            ^ Error: locator.click: Error: strict mode violation: locator('#cart button') resolved to 2 elements:
+  77 |     }
+  78 | 
+  79 |     async checkTotalValue():Promise<boolean> {
+  80 |         return this.totalTxt.isVisible();
+  81 |     }
+  82 | 
+  83 |     async clickViewCart() {
+  84 |         await this.BtnViewCart.click();
+  85 |     }
+  86 | }
+```

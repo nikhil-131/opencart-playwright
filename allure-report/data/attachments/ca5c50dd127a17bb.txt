@@ -1,0 +1,66 @@
+Account Registered Successfully...
+Login Registered user successfully...
+Product added to cart successfully...
+Received Unit Price: $602.00
+Passed Unit Price: $602.00
+While performing click on 'continue', error received:  locator.click: Error: strict mode violation: locator('a:has-text(\'Checkout\')') resolved to 3 elements:
+    1) <a title="Checkout" href="http://localhost/opencart/upload/index.php?route=checkout/checkout">…</a> aka getByRole('link', { name: ' Checkout' })
+    2) <a href="http://localhost/opencart/upload/index.php?route=checkout/checkout">…</a> aka locator('#cart a').filter({ hasText: 'Checkout' })
+    3) <a class="btn btn-primary" href="http://localhost/opencart/upload/index.php?route=checkout/checkout">Checkout</a> aka getByRole('link', { name: 'Checkout', exact: true })
+
+Call log:
+  - waiting for locator('a:has-text(\'Checkout\')')
+
+    at ShopppingCartPage.clickCheckout (D:\SDET\Opencart\pages\ShoppingCartPage.ts:68:36)
+    at productCheckout (D:\SDET\Opencart\tests\EndToEndTest.spec.ts:175:28)
+    at D:\SDET\Opencart\tests\EndToEndTest.spec.ts:80:5 {
+  log: [ "  - waiting for locator('a:has-text(\\'Checkout\\')')" ],
+  Symbol(step): {
+    location: {
+      file: 'D:\\SDET\\Opencart\\pages\\ShoppingCartPage.ts',
+      line: 68,
+      column: 36,
+      function: 'ShopppingCartPage.clickCheckout'
+    },
+    category: 'pw:api',
+    title: "Click locator('a:has-text(\\'Checkout\\')')",
+    apiName: 'locator.click',
+    params: { selector: "a:has-text('Checkout')", strict: true },
+    group: undefined,
+    stepId: 'pw:api@97',
+    boxedStack: undefined,
+    steps: [],
+    attachmentIndices: [],
+    info: TestStepInfoImpl {
+      annotations: [],
+      _testInfo: [TestInfoImpl],
+      _stepId: 'pw:api@97',
+      _title: "Click locator('a:has-text(\\'Checkout\\')')",
+      _parentStep: undefined,
+      skip: [Function (anonymous)]
+    },
+    complete: [Function: complete],
+    endWallTime: 1786989055081,
+    error: {
+      message: "Error: locator.click: Error: strict mode violation: locator('a:has-text(\\'Checkout\\')') resolved to 3 elements:\n" +
+        `    1) <a title="Checkout" href="http://localhost/opencart/upload/index.php?route=checkout/checkout">…</a> aka getByRole('link', { name: ' Checkout' })\n` +
+        `    2) <a href="http://localhost/opencart/upload/index.php?route=checkout/checkout">…</a> aka locator('#cart a').filter({ hasText: 'Checkout' })\n` +
+        `    3) <a class="btn btn-primary" href="http://localhost/opencart/upload/index.php?route=checkout/checkout">Checkout</a> aka getByRole('link', { name: 'Checkout', exact: true })\n` +
+        '\n' +
+        'Call log:\n' +
+        "\x1B[2m  - waiting for locator('a:has-text(\\'Checkout\\')')\x1B[22m\n",
+      stack: "Error: locator.click: Error: strict mode violation: locator('a:has-text(\\'Checkout\\')') resolved to 3 elements:\n" +
+        `    1) <a title="Checkout" href="http://localhost/opencart/upload/index.php?route=checkout/checkout">…</a> aka getByRole('link', { name: ' Checkout' })\n` +
+        `    2) <a href="http://localhost/opencart/upload/index.php?route=checkout/checkout">…</a> aka locator('#cart a').filter({ hasText: 'Checkout' })\n` +
+        `    3) <a class="btn btn-primary" href="http://localhost/opencart/upload/index.php?route=checkout/checkout">Checkout</a> aka getByRole('link', { name: 'Checkout', exact: true })\n` +
+        '\n' +
+        'Call log:\n' +
+        "\x1B[2m  - waiting for locator('a:has-text(\\'Checkout\\')')\x1B[22m\n" +
+        '\n' +
+        '    at ShopppingCartPage.clickCheckout (D:\\SDET\\Opencart\\pages\\ShoppingCartPage.ts:68:36)\n' +
+        '    at productCheckout (D:\\SDET\\Opencart\\tests\\EndToEndTest.spec.ts:175:28)\n' +
+        '    at D:\\SDET\\Opencart\\tests\\EndToEndTest.spec.ts:80:5',
+      cause: undefined
+    }
+  }
+}
