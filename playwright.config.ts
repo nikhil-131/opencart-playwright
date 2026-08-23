@@ -40,6 +40,7 @@ export default defineConfig({
     viewport: { width: 1280, height: 720 }, //NR updated
     ignoreHTTPSErrors: true, //NR updated
     permissions: ["geolocation"], //NR updated
+    baseURL: "https://restful-booker.herokuapp.com/",
   },
 
   // grep: /@master/, //NR updated
