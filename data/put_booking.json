@@ -1,11 +1,11 @@
 {
-    "firstname": "Jim",
-    "lastname": "Brown",
-    "totalprice": 111,
+    "firstname": "Narang",
+    "lastname": "Saxena",
+    "totalprice": 999,
     "depositpaid": true,
     "bookingdates": {
         "checkin": "2026-10-10",
         "checkout": "2026-10-15"
     },
-    "additionalneeds": "Breakfast"
+    "additionalneeds": "Shock"
 }
