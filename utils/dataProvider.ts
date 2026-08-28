@@ -12,7 +12,7 @@ static getTestDataFromJson(filePath:string)
 
 static getTestDataFromCsv(filePath:string)
 {
-     let data:any= parse(fs.readFileSync(filePath),{columns:true,skip_empty_lines:true})
+    let data:any= parse(fs.readFileSync(filePath),{columns:true,skip_empty_lines:true})
     return data;
     }
 

@@ -6,3 +6,12 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+/reports/html-report/
+
+# Allure Reports
+/allure-results
+/allure-report
+
+# Envirnoment Variables
+.env
+.env.*
