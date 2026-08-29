@@ -1,6 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","7061","User registration test @master @sanity @regression","chromium","2026-08-15","passed","2026-08-15","","AccountRegistration.spec.ts","",""
-"","5503","End to End functionality - Register, Login, Search, Finding product, adding to cart, checkout","chromium","2026-08-22","passed","2026-08-22","","EndToEndTest.spec.ts","",""
-"","2411","validate Logout functionality","chromium","2026-08-16","passed","2026-08-16","","Logout.spec.ts","",""
-"","3864","validate add to cart functionality","chromium","2026-08-16","passed","2026-08-16","","AddToCart.spec.ts","",""
-"","3626","validate product search functionality","chromium","2026-08-16","passed","2026-08-16","","SearchProduct.spec.ts","",""

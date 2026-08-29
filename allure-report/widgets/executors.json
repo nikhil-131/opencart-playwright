@@ -1,1 +1,0 @@
-[{"name":"Jenkins","type":"jenkins","url":"http://localhost:8080/","buildOrder":3,"buildName":"opencart-local #3","buildUrl":"http://localhost:8080/job/opencart-local/3/display/redirect","reportName":"AllureReport","reportUrl":"http://localhost:8080/job/opencart-local/3/allure"}]
